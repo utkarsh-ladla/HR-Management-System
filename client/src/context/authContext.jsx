@@ -6,7 +6,7 @@ const userContext = createContext()
 
 function authContext({children}) {
     const [user, setUser] = useState(null)
-    const[loading, setLoading] = useState(true)
+    const[loading, setLoading] = useState(false)
     useEffect(()=>{
         const verifyUser = async () => {
             try {
@@ -22,6 +22,7 @@ function authContext({children}) {
                         }
                         else{
                             setUser(null)
+                            setLoading(false)
                         }
                     }
                 
