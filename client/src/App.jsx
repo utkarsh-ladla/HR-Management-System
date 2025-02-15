@@ -14,6 +14,8 @@ import TimeAndAttendance from './components/Attendance/TimeAndAttendance'
 import DepartmentList from './components/department/DepartmentList'
 import AddDepartment from './components/department/AddDepartment'
 import EditDepartment from './components/department/EditDepartment'
+import List from './components/Employees/List'
+import Add from './components/Employees/Add'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -33,14 +35,15 @@ function App() {
         
         }>
           <Route index element={<AdminSummary />}></Route>
-          <Route path="/admin-dashboard/Employees" element={<EmployeeInformation />}></Route>
           <Route path="/admin-dashboard/Department" element={<DepartmentList />}></Route>         
           <Route path="/admin-dashboard/add-department" element={<AddDepartment />}></Route>         
           <Route path="/admin-dashboard/departments/:id" element={<EditDepartment />}></Route>   
-          <Route path="/admin-dashboard/Attendance" element={<TimeAndAttendance />}></Route>
           
+          <Route path="/admin-dashboard/Employees" element={<List />}></Route>
+          <Route path="/admin-dashboard/add-Employees" element={<Add />}></Route>         
         </Route>
 
+          <Route path="/admin-dashboard/Attendance" element={<TimeAndAttendance />}></Route>
       <Route path="/employee-dashboard" element={<EmployeeDashboard />}></Route>
     
     </Routes>

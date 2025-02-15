@@ -4,6 +4,7 @@ dotenv.config(); // Load environment variables from .env file
 import cors from 'cors'
 import authRouter from './routes/auth.js'
 import departmentRouter from './routes/department.js'
+import employeeRouter from './routes/employee.js'
 import connectToDatabase from './db/db.js';
 
 
@@ -14,6 +15,7 @@ app.use(express.json())
 // app.use('/')
 app.use('/api/auth', authRouter)
 app.use('/api/department', departmentRouter)
+app.use('/api/employee', employeeRouter)
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
