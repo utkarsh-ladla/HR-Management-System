@@ -13,6 +13,10 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 // app.use('/')
+app.get('/', (req, res) => {
+    res.send('Welcome to the HR Management API');
+});
+
 app.use('/api/auth', authRouter)
 app.use('/api/department', departmentRouter)
 app.use('/api/employee', employeeRouter)

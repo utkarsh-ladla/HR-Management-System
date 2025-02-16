@@ -14,7 +14,7 @@ const Login = () => {
         e.preventDefault();
         // Perform login logic (API call)
         try {
-          const response = await axios.post("http://localhost:3000/api/auth/login",
+          const response = await axios.post("https://hr-soltuion-server.vercel.app/",
             {email, password}
           )
           console.log(response.data);
