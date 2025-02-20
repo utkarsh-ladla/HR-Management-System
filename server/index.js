@@ -10,6 +10,7 @@ import connectToDatabase from './db/db.js';
 
 connectToDatabase()
 const app = express()
+const PORT = process.env.PORT || 3000;
 app.use(cors())
 app.use(cors({
     origin: 'https://client-7p1bi4irl-utkarsh-ladlas-projects.vercel.app', // Allow only your frontend
@@ -25,7 +26,6 @@ app.use('/api/auth', authRouter)
 app.use('/api/department', departmentRouter)
 app.use('/api/employee', employeeRouter)
 
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`server is running on port ${PORT}`)
 })
