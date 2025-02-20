@@ -11,6 +11,10 @@ import connectToDatabase from './db/db.js';
 connectToDatabase()
 const app = express()
 app.use(cors())
+app.use(cors({
+    origin: 'https://client-7p1bi4irl-utkarsh-ladlas-projects.vercel.app', // Allow only your frontend
+    credentials: true
+}));
 app.use(express.json())
 // app.use('/')
 app.get('/', (req, res) => {
