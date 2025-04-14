@@ -36,7 +36,7 @@ const AdminSidebar = () => {
           <FaUser className="mr-3" /> Department
         </NavLink>
         <NavLink
-          to="/admin-dashboard/Attendance"
+          to="/admin-dashboard/time-and-attendance"
           className={({ isActive }) =>
             `block py-3 px-6 flex items-center ${isActive ? 'bg-indigo-700' : 'hover:bg-indigo-700'
             }`
@@ -44,6 +44,8 @@ const AdminSidebar = () => {
         >
           <FaCog className="mr-3" /> Time and Attendance
         </NavLink>
+        {/* <FaCog className="mr-3" /> Time and Attendance
+        </NavLink> */}
       </nav>
     </div>
   );

@@ -1,14 +1,34 @@
-import express from 'express'
-import authMidleware from '../middleware/authMiddleware.js'
-import { addEmpolyee, upload} from '../controllers/employeeController.js'
-// import { upload } from '../controllers/employeeController.js'
+import express from 'express';
+import {
+  addEmployee,
+  getEmployees,
+  getEmployee,
+  updateEmployee,
+  deleteEmployee
+} from '../controllers/employeeController.js';
+import authMiddleware from '../middleware/authMiddleware.js';
 
-const router = express.Router()
+const router = express.Router();
 
-// router.get('/', authMidleware, getDepartments)
-router.post('/add', authMidleware, upload.single('image'), addEmpolyee)
-// router.get('/:id', authMidleware, getDepartment)
-// router.put('/:id', authMidleware, updateDepartment)
-// router.delete('/:id', authMidleware, deleteDepartment)
+// Apply auth middleware to all routes
+router.use(authMiddleware);
 
-export default router
+// Add new employee
+router.post('/add', addEmployee);
+
+// Get all employees
+router.get('/', getEmployees);
+
+// Get single employee
+router.get('/:id', getEmployee);
+
+// Update employee
+router.put('/:id', updateEmployee);
+
+// Delete employee
+router.delete('/:id', deleteEmployee);
+
+
+
+
+export default router;

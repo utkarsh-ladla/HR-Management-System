@@ -6,6 +6,7 @@ import authRouter from './routes/auth.js'
 import departmentRouter from './routes/department.js'
 import employeeRouter from './routes/employee.js'
 import connectToDatabase from './db/db.js';
+import attendanceRoutes from './models/Attendance.js';
 
 
 connectToDatabase()
@@ -13,7 +14,7 @@ const app = express()
 const PORT = process.env.PORT || 3000;
 app.use(cors())
 app.use(cors({
-    origin: 'https://client-7p1bi4irl-utkarsh-ladlas-projects.vercel.app', // Allow only your frontend
+    origin: 'http://localhost:5173', // Allow only your frontend
     credentials: true
 }));
 app.use(express.json())
@@ -24,7 +25,9 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRouter)
 app.use('/api/department', departmentRouter)
-app.use('/api/employee', employeeRouter)
+app.use('/api/employees', employeeRouter);
+
+app.use('/api/attendance', attendanceRoutes);
 
 app.listen(PORT, () => {
     console.log(`server is running on port ${PORT}`)
